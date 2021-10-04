@@ -1,5 +1,46 @@
 <% if logged_in? %>
   <p>ログイン完了ユーザ: <%= current_user.name %></p>
+  <p><%= @day%>日の食事内容  </p>
+  <p>合計<%= @calorie%>キロカロリー</p>
+  <p>タンパク質<%= @protein%>グラム</p>
+  <p>脂質<%= @fat%>グラム</p>
+  <p>炭水化物<%= @carbo%>グラム</p>
+  <%= link_to '食事を追加する', new_food_path %>
+  <h2>詳細メニュー</h2>
+  
+  <h3>朝食</h3>
+  <% @breakfasts.each do |breakfast| %>
+    <p><%= breakfast.name %></p>
+    <p><%= breakfast.kcal %>キロカロリー</p>
+    <%= link_to '編集', edit_food_path(breakfast) %> 
+    <%= link_to '削除', breakfast, method: :delete %>
+  <% end %>
+  
+  <h3>昼食</h3>
+  <% @lunches.each do |lunch| %>
+    <p><%= lunch.name %></p>
+    <p><%= lunch.kcal %>キロカロリー</p>
+    <%= link_to '編集', edit_food_path(lunch) %> 
+    <%= link_to '削除', lunch, method: :delete %>
+  <% end %>
+  
+  <h3>夕食</h3>
+  <% @dinners.each do |dinner| %>
+    <p><%= dinner.name %></p>
+    <p><%= dinner.kcal %>キロカロリー</p>
+    <%= link_to '編集', edit_food_path(dinner) %> 
+    <%= link_to '削除', dinner, method: :delete %>
+  <% end %>
+  
+  <h3>間食</h3>
+  <% @snacks.each do |snack| %>
+    <p><%= snack.name %></p>
+    <p><%= snack.kcal %>キロカロリー</p>
+    <%= link_to '編集', edit_food_path(snack) %> 
+    <%= link_to '削除', snack, method: :delete %>
+  <% end %>
+  
+  
 <% else %>
   <div class="bg-secondary p-3 p-sm-5 my-4 rounded">
     <div class="text-center text-white">
