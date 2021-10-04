@@ -1,5 +1,6 @@
 class FoodsController < ApplicationController
-  before_action :require_user_logged_in, :correct_user
+  before_action :require_user_logged_in
+  before_action :correct_user, only: [:edit, :update, :destroy]
   
   def new
     @food = Food.new
