@@ -2,6 +2,10 @@ class FoodsController < ApplicationController
   before_action :require_user_logged_in
   before_action :correct_user, only: [:edit, :update, :destroy]
   
+  def index
+    @foods = Food.all
+  end
+  
   def new
     @food = Food.new
   end
@@ -16,6 +20,19 @@ class FoodsController < ApplicationController
       flash.now[:danger] = '食事の記録に失敗しました。'
       render :new
     end
+  end
+  
+  def show
+    @day_params = params[:date]
+    @day_calorie = Food.where(meal_date: @day_params).where(user_id: current_user.try(:id)).sum(:kcal).round(3)
+    @day_protein = Food.where(meal_date: @day_params).where(user_id: current_user.try(:id)).sum(:protein).round(3)
+    @day_fat = Food.where(meal_date: @day_params).where(user_id: current_user.try(:id)).sum(:fat).round(3)
+    @day_carbo = Food.where(meal_date: @day_params).where(user_id: current_user.try(:id)).sum(:carbo).round(3)
+    
+    @day_breakfasts = Food.where("meal_time = '朝食'").where(meal_date: @day_params).where(user_id: current_user.try(:id))
+    @day_lunches = Food.where("meal_time = '昼食'").where(meal_date: @day_params).where(user_id: current_user.try(:id))
+    @day_dinners = Food.where("meal_time = '夕食'").where(meal_date: @day_params).where(user_id: current_user.try(:id))
+    @day_snacks = Food.where("meal_time = '間食'").where(meal_date: @day_params).where(user_id: current_user.try(:id))
   end
 
   def edit
