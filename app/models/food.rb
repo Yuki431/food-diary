@@ -10,4 +10,8 @@ class Food < ApplicationRecord
       validates :meal_date
       validates :meal_time
   end
+  
+  def start_time
+    self.meal_date 
+  end
 end

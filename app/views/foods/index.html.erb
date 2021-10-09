@@ -1,0 +1,9 @@
+
+<%= month_calendar do |date| %>
+  <%= date.day %>
+  
+  <% @day_calorie = Food.where(meal_date: date).where(user_id: current_user.try(:id)).sum(:kcal).round(3) %>
+
+  総カロリー：<%= link_to @day_calorie, food_path(date) %> kcal
+    
+<% end %>
