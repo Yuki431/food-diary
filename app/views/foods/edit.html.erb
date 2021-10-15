@@ -1,9 +1,13 @@
 <%= form_with(model: @food )do |f| %>
     <div class="mb-3">
+        <div class="mb-3">
         　<%= f.label :meal_date, '日付' %>
           <%= f.date_select :meal_date, {}, class: 'form-control' %>
+        </div>
+        <div class="mb-3">
           <%= f.label :meal_time, '時間' %>
           <%= f.select :meal_time, [["朝食", "朝食"], ["昼食", "昼食"],["夕食", "夕食"],["間食", "間食"]], include_blank: "選択して下さい" %>
+        </div>
           <%= f.label :name, '名前' %>
           <%= f.text_field :name, class: 'form-control', rows: 5 %>
           <%= f.label :kcal, 'カロリー' %>
@@ -15,5 +19,5 @@
           <%= f.label :carbo, '炭水化物' %>
           <%= f.text_field :carbo, class: 'form-control', rows: 5 %>
     </div>
-    <%= f.submit '食事を編集する', class: 'btn btn-primary w-100' %>
+    <%= f.submit '食事を編集する', class: 'btn btn-warning w-100' %>
 <% end %>
