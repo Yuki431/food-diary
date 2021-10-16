@@ -8,6 +8,7 @@ class FoodsController < ApplicationController
   
   def new
     @food = Food.new
+    @past_food = Food.select(:name,:kcal,:protein,:fat,:carbo).where(user_id: current_user.try(:id)).distinct
   end
 
   def create
