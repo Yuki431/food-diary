@@ -21,4 +21,27 @@
           <%= f.text_field :carbo, class: 'form-control', rows: 5 %>
     </div>
     <%= f.submit '食事を追加する', class: 'btn btn-warning w-100' %>
+    
+    
+        <div class="mt-5 mb-3"><label>過去の食事から選ぶ</label></div>
+        
+        <select multiple id="my_undone_action" onChange='auto_input()'>
+            
+          <% @past_food.each do |food| %>
+            <option><%= food.name %>,<%= food.kcal %>,<%= food.protein %>,<%= food.fat %>,<%= food.carbo %></option>
+          <% end %>
+          
+        </select>
+    
 <% end %>
+
+<script>
+  var auto_input = function () {
+    var element = document.getElementById("my_undone_action");
+    document.getElementById("food_name").value = element.value.split(",")[0];
+    document.getElementById("food_kcal").value = element.value.split(",")[1];
+    document.getElementById("food_protein").value = element.value.split(",")[2];
+    document.getElementById("food_fat").value = element.value.split(",")[3];
+    document.getElementById("food_carbo").value = element.value.split(",")[4];
+  }
+</script>
