@@ -13,6 +13,7 @@ class FoodsController < ApplicationController
 
   def create
     @food = current_user.foods.build(food_params)
+    @past_food = Food.select(:name,:kcal,:protein,:fat,:carbo).where(user_id: current_user.try(:id)).distinct
     
     if @food.save
       flash[:success] = '食事を記録しました。'
@@ -34,6 +35,8 @@ class FoodsController < ApplicationController
     @day_lunches = Food.where("meal_time = '昼食'").where(meal_date: @day_params).where(user_id: current_user.try(:id))
     @day_dinners = Food.where("meal_time = '夕食'").where(meal_date: @day_params).where(user_id: current_user.try(:id))
     @day_snacks = Food.where("meal_time = '間食'").where(meal_date: @day_params).where(user_id: current_user.try(:id))
+    
+    @day_weights = Weight.where(weight_date: @day_params).where(user_id: current_user.try(:id))
   end
 
   def edit
