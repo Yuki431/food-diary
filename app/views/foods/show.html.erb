@@ -1,7 +1,14 @@
 <div class="row">
   <div class="col-sm-6 offset-sm-3">
     <h1 class="mb-5"><%= @day_params %>日の食事内容</h1>
-    <h2 class="mb-5">合計<%= @day_calorie %>キロカロリー</h2>
+    
+    <% @day_weights.each do |weight| %>
+        <h2>体重<%= weight.daily_weight %>キログラム</h2>
+        <%= link_to '編集', edit_weight_path(weight) %> 
+        <%= link_to '削除', weight, method: :delete %>
+      <% end %>
+    
+    <h2 class="mt-5 mb-5">合計<%= @day_calorie %>キロカロリー</h2>
     <p>タンパク質<%= @day_protein%>グラム</p>
     <p>脂質<%= @day_fat%>グラム</p>
     <p class="mb-5">炭水化物<%= @day_carbo%>グラム</p>

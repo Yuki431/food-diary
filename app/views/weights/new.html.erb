@@ -1,0 +1,19 @@
+<%= form_with(model: @weight )do |f| %>
+    <div class="mb-3">
+        <div class="mb-3">
+        　<%= f.label :weight_date, '日付' %>
+          <%= f.date_select :weight_date, {}, class: 'form-control' %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :daily_weight, '体重'%>
+          <%= f.text_field :daily_weight, class: 'form-control', rows: 5 %>
+        </div>
+
+          
+    </div>
+    <%= f.submit '体重を記録する', class: 'btn btn-warning w-100' %>
+    
+    
+       
+    
+<% end %>
