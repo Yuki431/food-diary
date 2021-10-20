@@ -1,7 +1,8 @@
 <%= form_with(model: @food )do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
     <div class="mb-3">
         <div class="mb-3">
-        　<%= f.label :meal_date, '日付' %>
+        　<%= f.label :meal_date_1i, '日付' %>
           <%= f.date_select :meal_date, {}, class: 'form-control' %>
         </div>
         <div class="mb-3">
@@ -10,15 +11,15 @@
         </div>
 
           <%= f.label :name, '名前'%>
-          <%= f.text_field :name, class: 'form-control', rows: 5 %>
+          <%= f.text_field :name, class: 'form-control'%>
           <%= f.label :kcal, 'カロリー' %>
-          <%= f.text_field :kcal, class: 'form-control', rows: 5 %>
+          <%= f.text_field :kcal, class: 'form-control'%>
           <%= f.label :protein, 'タンパク質' %>
-          <%= f.text_field :protein, class: 'form-control', rows: 5 %>
+          <%= f.text_field :protein, class: 'form-control' %>
           <%= f.label :fat, '脂質' %>
-          <%= f.text_field :fat, class: 'form-control', rows: 5 %>
+          <%= f.text_field :fat, class: 'form-control'%>
           <%= f.label :carbo, '炭水化物' %>
-          <%= f.text_field :carbo, class: 'form-control', rows: 5 %>
+          <%= f.text_field :carbo, class: 'form-control'%>
     </div>
     <%= f.submit '食事を追加する', class: 'btn btn-warning w-100' %>
     

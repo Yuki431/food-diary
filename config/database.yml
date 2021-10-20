@@ -50,6 +50,9 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: food_diary_production
   username: food_diary
   password: <%= ENV['FOOD_DIARY_DATABASE_PASSWORD'] %>
