@@ -14,5 +14,7 @@ class ToppagesController < ApplicationController
       
       @weights = Weight.where(weight_date: @day).where(user_id: current_user.try(:id))
       
+      @diaries = Diary.where(diary_date: @day).where(user_id: current_user.try(:id))
+      
   end
 end

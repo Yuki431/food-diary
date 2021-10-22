@@ -10,6 +10,13 @@
         <%= link_to '削除', weight, method: :delete %>
       <% end %>
       
+      <% @diaries.each do |diary| %>
+        <h2 class="mt-5">運動内容</h2>
+        <p><%= diary.content %></p>
+        <%= link_to '編集', edit_diary_path(diary) %> 
+        <%= link_to '削除', diary, method: :delete %>
+      <% end %>
+      
       <h2 class="mt-5 mb-5">合計<%= @calorie%>キロカロリー</h2>
       <p>タンパク質<%= @protein%>グラム</p>
       <p>脂質<%= @fat%>グラム</p>

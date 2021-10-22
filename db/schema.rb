@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_17_113525) do
+ActiveRecord::Schema.define(version: 2021_10_22_121904) do
+
+  create_table "diaries", charset: "utf8mb4", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.date "diary_date"
+    t.index ["user_id"], name: "index_diaries_on_user_id"
+  end
 
   create_table "foods", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -43,6 +52,7 @@ ActiveRecord::Schema.define(version: 2021_10_17_113525) do
     t.index ["user_id"], name: "index_weights_on_user_id"
   end
 
+  add_foreign_key "diaries", "users"
   add_foreign_key "foods", "users"
   add_foreign_key "weights", "users"
 end
