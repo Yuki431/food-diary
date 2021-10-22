@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   get 'foods/:date', to: 'foods#show'
   
   resources :weights, only: [:new, :create, :edit, :update, :destroy]
+  
+  resources :diaries, only: [:new, :create, :edit, :update, :destroy]
 end

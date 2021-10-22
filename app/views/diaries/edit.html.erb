@@ -1,0 +1,19 @@
+<%= form_with(model: @diary )do |f| %>
+    <div class="mb-3">
+        <div class="mb-3">
+        　<%= f.label :diary_date, '日付' %>
+          <%= f.date_select :diary_date, {}, class: 'form-control' %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :content, '運動内容'%>
+          <%= f.text_field :content, class: 'form-control', rows: 5 %>
+        </div>
+
+          
+    </div>
+    <%= f.submit '運動内容を編集する', class: 'btn btn-warning w-100' %>
+    
+    
+       
+    
+<% end %>
