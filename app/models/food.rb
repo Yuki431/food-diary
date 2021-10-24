@@ -3,10 +3,10 @@ class Food < ApplicationRecord
   
   with_options presence: true do
       validates :name, length: { maximum: 255 }
-      validates :kcal
-      validates :protein
-      validates :fat
-      validates :carbo
+      validates :kcal, numericality: true
+      validates :protein, numericality: true
+      validates :fat, numericality: true
+      validates :carbo, numericality: true
       validates :meal_date
       validates :meal_time
   end

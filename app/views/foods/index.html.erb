@@ -4,8 +4,11 @@
   
   <% @day_calorie = Food.where(meal_date: date).where(user_id: current_user.try(:id)).sum(:kcal).round(3) %>
   <% @day_weights = Weight.where(weight_date: date).where(user_id: current_user.try(:id)).sum(:daily_weight) %>
-
-  総カロリー：<%= link_to @day_calorie, food_path(date) %> kcal
-  <p>体重 : <%= @day_weights %>キログラム</p>
+  <% if @day_calorie != 0 %>
+    総カロリー：<%= link_to @day_calorie, food_path(date) %> kcal
+  <% end %>
+  <% if @day_weights != 0 %>
+    <p>体重 : <%= @day_weights %>キログラム</p>
+  <% end %>
   
 <% end %>
