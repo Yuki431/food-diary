@@ -3,10 +3,10 @@ class Food < ApplicationRecord
   
   with_options presence: true do
       validates :name, length: { maximum: 255 }
-      validates :kcal, numericality: true
-      validates :protein, numericality: true
-      validates :fat, numericality: true
-      validates :carbo, numericality: true
+      validates :kcal, numericality: true, format: { with: /\A[-]?[0-9]+(\.[0-9]+)?\z/}
+      validates :protein, numericality: true, format: { with: /\A[-]?[0-9]+(\.[0-9]+)?\z/}
+      validates :fat, numericality: true, format: { with: /\A[-]?[0-9]+(\.[0-9]+)?\z/}
+      validates :carbo, numericality: true, format: { with: /\A[-]?[0-9]+(\.[0-9]+)?\z/}
       validates :meal_date
       validates :meal_time
   end
