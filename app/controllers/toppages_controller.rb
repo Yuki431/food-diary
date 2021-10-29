@@ -1,20 +1,20 @@
 class ToppagesController < ApplicationController
   def index
     
-      @day = Date.today
-      @calorie = Food.where(meal_date: @day).where(user_id: current_user.try(:id)).sum(:kcal).round(3)
-      @protein = Food.where(meal_date: @day).where(user_id: current_user.try(:id)).sum(:protein).round(3)
-      @fat = Food.where(meal_date: @day).where(user_id: current_user.try(:id)).sum(:fat).round(3)
-      @carbo = Food.where(meal_date: @day).where(user_id: current_user.try(:id)).sum(:carbo).round(3)
+      @today = Date.today.strftime("%Y年%m月%d日")
+      @calorie = current_user.foods.where(meal_date: @today).sum(:kcal).round(3)
+      @protein = current_user.foods.where(meal_date: @today).sum(:protein).round(3)
+      @fat = current_user.foods.where(meal_date: @today).sum(:fat).round(3)
+      @carbo = current_user.foods.where(meal_date: @today).sum(:carbo).round(3)
       
-      @breakfasts = Food.where("meal_time = '朝食'").where(meal_date: @day).where(user_id: current_user.try(:id))
-      @lunches = Food.where("meal_time = '昼食'").where(meal_date: @day).where(user_id: current_user.try(:id))
-      @dinners = Food.where("meal_time = '夕食'").where(meal_date: @day).where(user_id: current_user.try(:id))
-      @snacks = Food.where("meal_time = '間食'").where(meal_date: @day).where(user_id: current_user.try(:id))
+      @breakfasts = current_user.foods.where("meal_time = '朝食'").where(meal_date: @today)
+      @lunches = current_user.foods.where("meal_time = '昼食'").where(meal_date: @today)
+      @dinners = current_user.foods.where("meal_time = '夕食'").where(meal_date: @today)
+      @snacks = current_user.foods.where("meal_time = '間食'").where(meal_date: @today)
       
-      @weights = Weight.where(weight_date: @day).where(user_id: current_user.try(:id))
+      @weight = current_user.weights.find_by(weight_date: @today)
       
-      @diaries = Diary.where(diary_date: @day).where(user_id: current_user.try(:id))
+      @diary = current_user.diaries.find_by(diary_date: @today)
       
   end
 end
