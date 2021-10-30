@@ -1,7 +1,7 @@
 <% if logged_in? %>
   <div class="row">
     <div class="col-sm-6 offset-sm-3">
-      <h1 class="mb-5"><%= @today%>の食事内容  </h1>
+      <h1 class="mb-5"><%= @day.strftime("%Y年%m月%d日")%>の食事内容  </h1>
       
       <% if @weight %>
         <h2>体重<%= @weight.daily_weight %>キログラム</h2>
