@@ -9,7 +9,7 @@ ja:
       food:
         name: 名前
         kcal: カロリー
-        protein: プロテイン
+        protein: タンパク質
         fat: 脂質
         carbo: 炭水化物
         meal_date: 日付
