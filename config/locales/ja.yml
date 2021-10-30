@@ -1,0 +1,24 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+  
+      food:
+        name: 名前
+        kcal: カロリー
+        protein: プロテイン
+        fat: 脂質
+        carbo: 炭水化物
+        meal_date: 日付
+        meal_time: 時間
+  
+      weight:
+        daily_weight: 体重
+        weight_date: 日付
+   
+      diary:
+        content: 運動内容
+        diary_date: 日付
