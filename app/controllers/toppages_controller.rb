@@ -1,7 +1,7 @@
 class ToppagesController < ApplicationController
   def index
     
-      @day = Date.today.strftime("%Y年%m月%d日")
+      @day = Date.today
       @calorie = Food.where(meal_date: @day).where(user_id: current_user.try(:id)).sum(:kcal).round(3)
       @protein = Food.where(meal_date: @day).where(user_id: current_user.try(:id)).sum(:protein).round(3)
       @fat = Food.where(meal_date: @day).where(user_id: current_user.try(:id)).sum(:fat).round(3)
