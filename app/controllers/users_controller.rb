@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   def new
     @user = User.new
   end
@@ -15,9 +16,17 @@ class UsersController < ApplicationController
     end
   end
   
+  def destroy
+    @user = User.find(current_user.id)
+    @user.destroy
+    flash[:success] = '退会しました。'
+    redirect_to("/")
+  end
+  
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
+
 end

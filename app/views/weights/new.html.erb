@@ -1,9 +1,9 @@
 <%= form_with(model: @weight )do |f| %>
     <%= render 'layouts/error_messages', model: f.object %>
     <div class="mb-3">
-        <div class="mb-3">
+        <div class="mb-3 text-left>
         　<%= f.label :weight_date_1i, '日付' %>
-          <%= f.date_select :weight_date, {}, class: 'form-control' %>
+          <%= f.date_select :weight_date %>
         </div>
         <div class="mb-3">
           <%= f.label :daily_weight, '体重'%>
