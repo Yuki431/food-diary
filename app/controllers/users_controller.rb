@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :user_admin, only: [:index]
 
   def index
+    @users = User.all
   end
 
   def new
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
     @user.destroy
     flash[:success] = '退会しました。'
     redirect_to("/")
@@ -35,10 +36,9 @@ class UsersController < ApplicationController
   end
 
   def user_admin
-    @users = User.all
     if current_user.admin == false
         redirect_to root_path
     end
- end
+  end
   
 end
