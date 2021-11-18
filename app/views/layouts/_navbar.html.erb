@@ -14,7 +14,7 @@
             <li class="nav-item"><%= link_to '運動内容を記録', new_diary_path, class: 'nav-link' %></li>
             <li class="nav-item"><%= link_to 'カレンダー', foods_path, class: 'nav-link' %></li>
             <li class="nav-item"><%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %></li>
-            <li class="nav-item"><%= link_to '退会する', withdrawal_path, data: { confirm: '退会してよいですか？' }, method: :delete, class: 'nav-link' %></li>
+            <li class="nav-item"><%= link_to '退会する', current_user, data: { confirm: '退会してよいですか？' }, method: :delete, class: 'nav-link' %></li>
             <% if current_user == @user || current_user.admin? %>
               <li class="nav-item"><%= link_to '管理者ページ', users_path, class: 'nav-link' %></li>
             <% end %>

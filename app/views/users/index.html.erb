@@ -1,3 +1,11 @@
-<% @users.each do |user|%>
-  <%= user.name%>
-<% end %>
+<div class="container"> 
+  <div class="raw">
+    <div class="col-sm-6 offset-sm-3">
+      <h1 class="mb-5">ユーザー一覧</h1>
+      <% @users.each do |user|%>
+    　  <h3 class="mb-0"><%= user.name%></h3>
+        <div class="mb-1"><%= link_to '削除', user, method: :delete %></div>
+      <% end %>
+    </div>
+  </div>
+</div>

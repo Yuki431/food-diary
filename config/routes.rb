@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destroy'
 
   get 'signup', to: 'users#new'
-  delete 'withdrawal', to: 'users#destroy'
-  resources :users, only: [:index, :create]
+  
+  resources :users, only: [:index, :create, :destroy]
   
   resources :foods, only: [:index, :new, :create, :edit, :update, :destroy]
   get 'foods/:date', to: 'foods#show'
