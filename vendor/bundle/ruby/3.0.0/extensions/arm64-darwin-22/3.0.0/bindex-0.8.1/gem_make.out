@@ -1,0 +1,15 @@
+current directory: /Users/yuki/Downloads/food-diary/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/yuki/.rbenv/versions/3.0.0/bin/ruby -I /Users/yuki/.rbenv/versions/3.0.0/lib/ruby/3.0.0 -r ./siteconf20230203-39689-psdbnk.rb extconf.rb
+creating Makefile
+
+current directory: /Users/yuki/Downloads/food-diary/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/yuki/Downloads/food-diary/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/yuki/Downloads/food-diary/vendor/bundle/ruby/3.0.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20230203-39689-qdcuey/skiptrace/internal
